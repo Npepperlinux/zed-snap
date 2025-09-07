@@ -23,3 +23,5 @@ jobs:
                 jq .  | grep tag_name | grep -v pre | head -n 1 | cut -d'"' -f4 | tr -d 'v'
             )
             sed -i 's/^\(version: \).*$/\1'"$VERSION"'/' snap/snapcraft.yaml
+
+      - run: echo $(git diff)
