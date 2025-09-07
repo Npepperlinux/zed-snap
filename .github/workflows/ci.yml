@@ -1,0 +1,24 @@
+name: 🔄 Sync version with upstream
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "19 18 * * *"
+
+jobs:
+  sync:
+    name: 🔄 Sync version with upstream
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔄 Sync version with upstream
+        uses: snapcrafters/ci/sync-version@main
+        with:
+          bot-email: 41898282+github-actions[bot]@users.noreply.github.com
+          bot-name: github-actions[bot]
+          token: ${{ secrets.GITHU_TOKEN }}
+          update-script: |
+            VERSION=$(
+                curl -sL https://api.github.com/repos/zed-industries/zed/releases |
+                jq .  | grep tag_name | grep -v pre | head -n 1 | cut -d'"' -f4 | tr -d 'v'
+            )
+            sed -i 's/^\(version: \).*$/\1'"$VERSION"'/' snap/snapcraft.yaml
