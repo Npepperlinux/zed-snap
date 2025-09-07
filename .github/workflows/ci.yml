@@ -19,6 +19,7 @@ jobs:
         uses: snapcrafters/ci/sync-version@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          branch: workflow_test
           update-script: |
             VERSION=$(
                 curl -sL https://api.github.com/repos/zed-industries/zed/releases |
