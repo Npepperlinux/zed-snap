@@ -24,6 +24,7 @@ parts:
     # See 'snapcraft plugins'
     plugin: nil
     source: https://github.com/zed-industries/zed
+    source-tag: v0.213.7
     source-type: git
     build-environment:
       - APP_NAME: Zed
