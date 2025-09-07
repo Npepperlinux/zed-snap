@@ -16,6 +16,7 @@ jobs:
           bot-email: 41898282+github-actions[bot]@users.noreply.github.com
           bot-name: github-actions[bot]
           token: ${{ secrets.GITHU_TOKEN }}
+          branch: workflow_test
           update-script: |
             VERSION=$(
                 curl -sL https://api.github.com/repos/zed-industries/zed/releases |
