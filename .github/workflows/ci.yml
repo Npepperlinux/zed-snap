@@ -4,6 +4,11 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "19 18 * * *"
+  push:
+    paths:
+      - .github/workflows/ci/yml
+    branches:
+      - workflow_test
 
 jobs:
   sync:
@@ -13,8 +18,6 @@ jobs:
       - name: 🔄 Sync version with upstream
         uses: snapcrafters/ci/sync-version@main
         with:
-          bot-email: 41898282+github-actions[bot]@users.noreply.github.com
-          bot-name: github-actions[bot]
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: workflow_test
           update-script: |
