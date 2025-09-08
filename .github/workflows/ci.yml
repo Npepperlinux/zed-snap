@@ -25,4 +25,4 @@ jobs:
                 curl -sL https://api.github.com/repos/zed-industries/zed/releases |
                 jq .  | grep tag_name | grep -v pre | head -n 1 | cut -d'"' -f4
             )
-            yq -i ".parts.zed.source-tag = $VERSION" snap/snapcraft.yaml
+            yq -i ".parts.zed.source-tag = \"$VERSION\"" snap/snapcraft.yaml
