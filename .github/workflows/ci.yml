@@ -10,6 +10,9 @@ on:
     branches:
       - workflow_test
 
+permissions:
+  contents: write
+
 jobs:
   sync:
     name: 🔄 Sync version with upstream
@@ -23,8 +26,6 @@ jobs:
           update-script: |
             VERSION=$(
                 curl -sL https://api.github.com/repos/zed-industries/zed/releases |
-                jq .  | grep tag_name | grep -v pre | head -n 1 | cut -d'"' -f4 | tr -d 'v'
+                jq .  | grep tag_name | grep -v pre | head -n 1 | cut -d'"' -f4
             )
             sed -i 's/^\(source-tag: \).*$/\1'"$VERSION"'/' snap/snapcraft.yaml
-
-      - run: echo $(git diff)
