@@ -1,0 +1,28 @@
+name: 🔧 Build Snap package
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - workflow
+    paths:
+      - snap/snapcraft.yaml
+
+jobs:
+  build:
+    name: 🔧 Build Snap package
+    runs-on: ubuntu-latest
+    outputs:
+      snap: ${{ steps.snapcraft.outputs.snap }}
+    steps:
+      - name: ✅ Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🔧 Build Snap package
+        id: snapcraft
+        uses: canonical/snapcraft-multiarch-action@v1
+
+      - name: 🔼 Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: ${{ steps.snapcraft.outputs.snap }}

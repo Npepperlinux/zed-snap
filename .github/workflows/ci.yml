@@ -4,6 +4,11 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "19 19 * * *"
+  push:
+    branches:
+      - workflow
+    paths:
+      - .github/workflows/ci.yml
 
 jobs:
   sync:
@@ -14,6 +19,7 @@ jobs:
         uses: snapcrafters/ci/sync-version@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          branch: workflow
           update-script: |
             VERSION=$(
                 curl -sL https://api.github.com/repos/zed-industries/zed/releases |
