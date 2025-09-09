@@ -8,7 +8,7 @@ on:
     branches:
       - workflow
     paths:
-      - .github/workflows/ci.yml
+      - ".github/workflows/ci.yml"
 
 jobs:
   sync:

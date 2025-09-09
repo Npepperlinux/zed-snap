@@ -6,7 +6,7 @@ on:
     branches:
       - workflow
     paths:
-      - snap/snapcraft.yaml
+      - "snap/snapcraft.yaml"
 
 jobs:
   build:
