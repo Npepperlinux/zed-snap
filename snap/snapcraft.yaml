@@ -38,7 +38,6 @@ parts:
       - libwayland-dev
       - libxkbcommon-x11-dev
       - libssl-dev
-      - libstdc++-12-dev
       - libzstd-dev
       - libvulkan1
       - libgit2-dev
@@ -46,11 +45,14 @@ parts:
       - clang
       - mold
       - jq
+      - git
+      - curl
       - gettext-base
       - elfutils
       - libsqlite3-dev
-      - libx11-dev
-      - libx11-xcb-dev
+      - musl-tools
+      - musl-dev
+      - build-essential
     override-build: |
       craftctl default
       rustup update
