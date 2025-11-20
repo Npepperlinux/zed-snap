@@ -27,11 +27,12 @@ parts:
       - APP_NAME: Zed
       - ZED_BUNDLE: "true"
       - ZED_UPDATE_EXPLANATION: Please use snap to update zed
+      - RUSTFLAGS: "-C link-arg=-fuse-ld=mold"
     build-snaps:
       - rustup
     build-packages:
-      - libx11-xcb-dev  
-      - libxcursor-dev 
+      - libx11-xcb-dev
+      - libxcursor-dev
       - cmake
       - gcc
       - g++
