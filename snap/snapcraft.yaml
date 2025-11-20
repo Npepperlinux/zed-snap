@@ -30,6 +30,8 @@ parts:
     build-snaps:
       - rustup
     build-packages:
+      - libx11-xcb-dev  
+      - libxcursor-dev 
       - cmake
       - gcc
       - g++
