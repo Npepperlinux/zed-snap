@@ -60,7 +60,7 @@ parts:
       - build-essential
     override-pull: |
       craftctl default
-      craftctl set version=$(git describe --tags --abbrev=10)
+      craftctl set version=$(git describe --tags --abbrev=10 --match 'v[0-9]*.[0-9]*.[0-9]*')
     override-build: |
       craftctl default
       rustup update
