@@ -16,13 +16,14 @@ jobs:
       snap: ${{ steps.snapcraft.outputs.snap }}
     steps:
       - name: ✅ Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: 🔧 Build Snap package
         id: snapcraft
         uses: canonical/craft-actions/snapcraft/pack@main
 
       - name: 🔼 Upload Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           path: ${{ steps.snapcraft.outputs.snap }}
+          archive: false

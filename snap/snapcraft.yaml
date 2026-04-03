@@ -47,6 +47,7 @@ parts:
       - libzstd-dev
       - libvulkan1
       - libgit2-dev
+      - librust-glib-sys-dev
       - make
       - clang
       - mold
