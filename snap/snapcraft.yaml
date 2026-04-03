@@ -8,7 +8,6 @@ compression: lzo
 summary: A high-performance, multiplayer code editor # 79 char long summary
 description: |
   Code at the speed of thought – Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter.
-
 contact: https://github.com/sukso96100/zed-snap/issues
 issues: https://github.com/sukso96100/zed-snap/issues
 source-code: https://github.com/sukso96100/zed-snap/issues
@@ -24,7 +23,7 @@ parts:
     # See 'snapcraft plugins'
     plugin: nil
     source: https://github.com/zed-industries/zed
-    source-tag: v0.213.7
+    source-tag: v0.230.1
     source-type: git
     build-environment:
       - APP_NAME: Zed
